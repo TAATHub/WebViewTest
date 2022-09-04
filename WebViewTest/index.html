@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>タイトル</title>
+        
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            button {
+                width: 240px;
+                height: 60px;
+                border: none;
+                border-radius: 8px;
+                color: white;
+                background-color: #399ee2;
+                margin: 16px auto;
+                font-size: 14px;
+                font-weight: bold;
+            }
+        </style>
+        
+        <script>
+            const showAlert = () => {
+                alert('アラートです。');
+            };
+            
+            const showConfirm = () => {
+                confirm('確認ダイアログです。');
+            };
+            
+            const showPrompt = () => {
+                prompt('入力してください。');
+            };
+            
+            const sendMessage = () => {
+                const dic = {
+                    name: "John",
+                    age: 30
+                }
+                webkit.messageHandlers.callbackHandler.postMessage(dic);
+            };
+            
+            const showLocalMessage = (message) => {
+                alert(message)
+            };
+            
+            const getFromUserDefautls = () => {
+                webkit.messageHandlers.userDefaultsHandler.postMessage("");
+            };
+        </script>
+    </head>
+    <body>
+        <button onclick="showAlert()">alert</button>
+        <button onclick="showConfirm()">confirm</button>
+        <button onclick="showPrompt()">prompt</button>
+        <button onclick="sendMessage()">ネイティブにメッセージを送信</button>
+        <button onclick="getFromUserDefautls()">UserDefaultsからデータを取得</button>
+    </body>
+</html>
